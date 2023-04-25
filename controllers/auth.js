@@ -4,6 +4,7 @@ const { StatusCodes } = require("http-status-codes");
 const register = async (req, res) => {
   const { name, email, password } = req.body;
   const user = await User.create({ ...req.body });
+  console.log(req.body);
   res.status(StatusCodes.CREATED).json({ user });
 };
 const login = async (req, res) => {
