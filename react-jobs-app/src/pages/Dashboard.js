@@ -1,12 +1,12 @@
-import styled from 'styled-components';
-import { useState, useEffect } from 'react';
-import { useGlobalContext } from '../context/appContext';
-import FormRow from '../components/FormRow';
-import Navbar from '../components/Navbar';
-import Jobs from '../components/Jobs';
+import styled from "styled-components";
+import { useState, useEffect } from "react";
+import { useGlobalContext } from "../context/appContext";
+import FormRow from "../components/FormRow";
+import Navbar from "../components/Navbar";
+import Jobs from "../components/Jobs";
 
 function Dashboard() {
-  const [values, setValues] = useState({ company: '', position: '' });
+  const [values, setValues] = useState({ company: "", position: "" });
 
   const handleChange = (e) => {
     setValues({ ...values, [e.target.name]: e.target.value });
@@ -19,7 +19,7 @@ function Dashboard() {
     const { company, position } = values;
     if (company && position) {
       createJob(values);
-      setValues({ company: '', position: '' });
+      setValues({ company: "", position: "" });
     }
   };
   useEffect(() => {
@@ -29,33 +29,33 @@ function Dashboard() {
     <>
       <Navbar />
 
-      <Wrapper className='page'>
+      <Wrapper className="page">
         {showAlert && (
-          <div className='alert alert-danger'>
+          <div className="alert alert-danger">
             there was an error, please try again
           </div>
         )}
-        <form className='job-form' onSubmit={handleSubmit}>
+        <form className="job-form" onSubmit={handleSubmit}>
           {/* position */}
           <FormRow
-            type='name'
-            name='position'
+            type="name"
+            name="position"
             value={values.position}
             handleChange={handleChange}
             horizontal
-            placeholder='Position'
+            placeholder="Position"
           />
           {/* company */}
           <FormRow
-            type='name'
-            name='company'
+            type="name"
+            name="company"
             value={values.company}
             handleChange={handleChange}
             horizontal
-            placeholder='Company'
+            placeholder="Company"
           />
-          <button type='submit' className='btn' disabled={isLoading}>
-            {isLoading ? 'Adding New Job...' : 'Add Job'}
+          <button type="submit" className="btn" disabled={isLoading}>
+            {isLoading ? "Adding New Job..." : "Add Job"}
           </button>
         </form>
 
